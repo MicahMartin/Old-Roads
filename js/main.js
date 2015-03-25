@@ -239,7 +239,7 @@ $(document).ready(function() {
     "type": "Feature",
     "properties": {"area": "Tutorial Island",
     "src":"https://www.youtube.com/embed/VNW9TAwImBY?autoplay=1",
-    "track":"Newbie Melody.. T.T oh the Nostalgia.."},
+    "track":"Newbie Melody.. T.T the Nostalgia.."},
     "geometry": {
       "type": "Polygon",
       "coordinates": [[
