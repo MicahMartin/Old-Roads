@@ -230,9 +230,80 @@ $(document).ready(function() {
       "type": "Polygon",
       "coordinates": [[
         [5.51,-25.1],
-        [5.51,-37],
-        [16.9,-37],
+        [5.51,-36],
+        [16.9,-36],
         [16.9,-25.1]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "Tutorial Island",
+    "src":"https://www.youtube.com/embed/VNW9TAwImBY?autoplay=1",
+    "track":"Newbie Melody.. T.T oh the Nostalgia.."},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+
+        [5.51,-36],
+        [5.51,-47],
+        [41,-47],
+        [41,-36]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "Wizard's Tower",
+    "src":"https://www.youtube.com/embed/2T6Le21bzBU?autoplay=1",
+    "track":"Vision"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [17,-25.1],
+        [17,-36],
+        [29,-36],
+        [29,-25.1]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "East Lumbridge Swamp",
+    "src":"https://www.youtube.com/embed/Dwa-81884m8?autoplay=1",
+    "track":"Book of Spells"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [29,-25.1],
+        [29,-36],
+        [41,-36],
+        [41,-25.1]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "West Lumbridge Swamp",
+    "src":"https://www.youtube.com/embed/FMNAcMNedOc?autoplay=1",
+    "track":"Yesteryear"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [41,-25.1],
+        [41,-36],
+        [52,-36],
+        [52,-25.1]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "Al Kharid",
+    "src":"https://www.youtube.com/embed/q4D0InGS0DU?autoplay=1",
+    "track":"Al Kharid"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [52,-25.1],
+        [52,-36],
+        [75.5,-36],
+        [75.5,-25.1]
       ]]
     }
   },{
@@ -258,9 +329,37 @@ $(document).ready(function() {
       "type": "Polygon",
       "coordinates": [[
         [5.5,-25.1],
-        [5.5,-37],
-        [-5.8,-37],
+        [5.5,-36],
+        [-5.8,-36],
         [-5.8,-25.1]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "MudSkipper Dungeon",
+    "src":"https://www.youtube.com/embed/K8gYcdFts00?autoplay=1",
+    "track":"Mud Skipper Melody"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [5.5,-36],
+        [5.5,-46],
+        [-5.8,-46],
+        [-5.8,-36]
+      ]]
+    }
+  },{
+    "type": "Feature",
+    "properties": {"area": "Musa Point",
+    "src":"https://www.youtube.com/embed/ykZey21sYds?autoplay=1",
+    "track":"Sea Shanty"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-5.7,-25.1],
+        [-5.7,-36],
+        [-17.7,-36],
+        [-17.7,-25.1]
       ]]
     }
   },{
