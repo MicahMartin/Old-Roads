@@ -9,7 +9,6 @@ $(document).ready(function() {
     minZoom: 0,
     maxZoom: 6,
     clipTiles: true,
-    attribution: 'Created by Micah Martin, all music and images belong to Jagex ltd.',
     tms: true,
     crs: L.CRS.Simple,
     continuousWorld:'true',
