@@ -14,6 +14,7 @@ $(document).ready(function() {
     crs: L.CRS.Simple,
     continuousWorld:'true',
   }).addTo(map);
+  map.attributionControl.setPrefix('');
   map.setMaxBounds(bounds);
   L.marker([0,0]).addTo(map);
 
