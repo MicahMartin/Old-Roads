@@ -52,7 +52,7 @@ $(document).ready(function() {
 
     $('#map').one('click', '.okBtn', function() {
       var  url = $('#url').val();
-      console.log(layer.id);
+      layer.url = url;
       if (popup) {
         map.closePopup();
       }
