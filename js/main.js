@@ -26,19 +26,40 @@ $(document).ready(function() {
   });
   map.addControl(drawControl);
 
+  var shape_id_counter = 0;
+  var content = '<input id="url" type="text"/><br/><input type="button" class="okBtn" value="Save"/>'
+
+
   map.on('draw:created', function (e) {
+    shape_id_counter += 1;
     var type = e.layerType,
-    layer = e.layer;
-
-    if (type) {
-        console.log(drawnItems);
-    }
-
-
+    layer = e.layer,
+    shape = layer.toGeoJSON();
 
     drawnItems.addLayer(layer);
-  });
+    console.log(layer);
 
+    shape.properties.id = shape_id_counter;
+    shape_for_db = JSON.stringify(shape);
+
+
+    var latlng = [0,0];
+    var popup = L.popup()
+    .setLatLng(latlng)
+    .setContent(content)
+    .openOn(map);
+
+    $('#map').on('click', '.okBtn', function() {
+
+    var  url = $('#url').val();
+
+    if (popup) {
+       map.closePopup();
+     }
+
+    });
+
+  });
 });
 
 
