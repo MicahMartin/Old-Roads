@@ -5,6 +5,7 @@ $(document).ready(function() {
   bounds = new L.LatLngBounds(southWest, northEast);
   var map = L.map('map').setView([0, 0], 5);
 
+
   L.tileLayer('img/worldmap/{z}/{x}/{y}.png', {
     minZoom: 3,
     maxZoom: 6,
@@ -33,13 +34,14 @@ $(document).ready(function() {
   map.on('draw:created', function (e) {
     shape_id_counter += 1;
     var type = e.layerType,
-    layer = e.layer,
+    layer = e.layer;
+
+    layer.id = shape_id_counter;
     shape = layer.toGeoJSON();
 
     drawnItems.addLayer(layer);
 
     shape_for_db = JSON.stringify(shape);
-    layer.id = shape_id_counter;
 
     var latlng = [0,0];
     var popup = L.popup()
@@ -48,22 +50,23 @@ $(document).ready(function() {
     .openOn(map);
 
     $('#map').on('click', '.okBtn', function() {
+      var  url = $('#url').val();
+      
 
-    var  url = $('#url').val();
-    layer.url = url;
 
     if (popup) {
+
        map.closePopup();
      }
-
     });
 
   });
   drawnItems.on('click',function(e){
     var layer = e.layer;
-    var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
-    $("#iframe").attr('src', parsedUrl.toString());
-    console.log(parsedUrl);
+    // var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
+    // $("#iframe").attr('src',);
+    console.log(layer.id);
+    console.log(layer);
   });
 
 });
