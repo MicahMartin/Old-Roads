@@ -59,6 +59,13 @@ $(document).ready(function() {
     });
 
   });
+  drawnItems.on('click',function(e){
+    var layer = e.layer;
+    var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
+    $("#iframe").attr('src', parsedUrl.toString());
+    console.log(parsedUrl);
+  });
+
 });
 
 
