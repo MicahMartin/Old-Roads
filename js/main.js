@@ -28,7 +28,6 @@ $(document).ready(function() {
   map.addControl(drawControl);
 
   var shape_id_counter = 0;
-  var content = '<input id="url" type="text"/><br/><input type="button" class="okBtn" value="Save"/>'
 
 
   map.on('draw:created', function (e) {
@@ -45,21 +44,20 @@ $(document).ready(function() {
     shape_for_db = JSON.stringify(shape);
 
     var latlng = [0,0];
+    var content = '<input id="url" type="text"/><br/><input type="button" class="okBtn" value="Save"/>'
     var popup = L.popup()
     .setLatLng(latlng)
     .setContent(content)
     .openOn(map);
 
-    $('#map').on('click', '.okBtn', function() {
+    $('#map').one('click', '.okBtn', function() {
       var  url = $('#url').val();
-
-
-
-    if (popup) {
-
-       map.closePopup();
-     }
+      console.log(layer.id);
+      if (popup) {
+        map.closePopup();
+      }
     });
+
 
   });
   drawnItems.on('click',function(e){
