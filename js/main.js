@@ -37,6 +37,7 @@ $(document).ready(function() {
     layer = e.layer;
 
     layer.id = shape_id_counter;
+
     shape = layer.toGeoJSON();
 
     drawnItems.addLayer(layer);
@@ -51,7 +52,7 @@ $(document).ready(function() {
 
     $('#map').on('click', '.okBtn', function() {
       var  url = $('#url').val();
-      
+
 
 
     if (popup) {
@@ -63,10 +64,11 @@ $(document).ready(function() {
   });
   drawnItems.on('click',function(e){
     var layer = e.layer;
-    // var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
-    // $("#iframe").attr('src',);
+    var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
+    $("#iframe").attr('src',parsedUrl);
     console.log(layer.id);
     console.log(layer);
+
   });
 
 });
