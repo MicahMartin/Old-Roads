@@ -37,11 +37,9 @@ $(document).ready(function() {
     shape = layer.toGeoJSON();
 
     drawnItems.addLayer(layer);
-    console.log(layer);
 
-    shape.properties.id = shape_id_counter;
     shape_for_db = JSON.stringify(shape);
-
+    layer.id = shape_id_counter;
 
     var latlng = [0,0];
     var popup = L.popup()
@@ -52,6 +50,7 @@ $(document).ready(function() {
     $('#map').on('click', '.okBtn', function() {
 
     var  url = $('#url').val();
+    layer.url = url;
 
     if (popup) {
        map.closePopup();
