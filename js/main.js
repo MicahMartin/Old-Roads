@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-  var southWest = new L.LatLng(-85, 180);
+  var southWest = new L.LatLng(-85, 180);           // setting up the bounds for use later
   var northEast = new L.LatLng(85, -180);
   bounds = new L.LatLngBounds(southWest, northEast);
-  var map = L.map('map').setView([0, 0], 5);
+  var map = L.map('map').setView([0, 0], 5);      //map variable
 
 
   L.tileLayer('img/worldmap/{z}/{x}/{y}.png', {
@@ -15,33 +15,31 @@ $(document).ready(function() {
     continuousWorld:'true',
   }).addTo(map);
   map.attributionControl.setPrefix('');
-  map.setMaxBounds(bounds);
+  map.setMaxBounds(bounds);         //defining map's tile layer
 
-  var drawnItems = new L.FeatureGroup();
+  var drawnItems = new L.FeatureGroup();    // leaflet.draw's featuregroup
   map.addLayer(drawnItems);
 
-  var drawControl = new L.Control.Draw({
+  var drawControl = new L.Control.Draw({    // leaflet.draw's control
     edit: {
       featureGroup: drawnItems
     }
   });
   map.addControl(drawControl);
 
-  var shape_id_counter = 0;
+  var shape_id_counter = 0;       //ID counter gets incremented on map's draw:created event and assigned to generated object
 
 
-  map.on('draw:created', function (e) {
+  map.on('draw:created', function (e) { // 'type' and 'layer' catches the actual object created?
     shape_id_counter += 1;
+
     var type = e.layerType,
     layer = e.layer;
+    layer._id = shape_id_counter;
 
-    layer.id = shape_id_counter;
-
-    shape = layer.toGeoJSON();
 
     drawnItems.addLayer(layer);
 
-    shape_for_db = JSON.stringify(shape);
 
     var latlng = [0,0];
     var content = '<input id="url" type="text"/><br/><input type="button" class="okBtn" value="Save"/>'
@@ -52,11 +50,13 @@ $(document).ready(function() {
 
     $('#map').one('click', '.okBtn', function() {
       var  url = $('#url').val();
-      layer.url = url;
+      layer._url = url;
       if (popup) {
         map.closePopup();
       }
     });
+    // shape_for_db = JSON.stringify(shape);
+
 
 
   });
@@ -64,8 +64,14 @@ $(document).ready(function() {
     var layer = e.layer;
     var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
     $("#iframe").attr('src',parsedUrl);
-    console.log(layer.id);
-    console.log(layer);
+    console.log(layer._id);
+    console.log(layer._url);
+    var shape = layer.toGeoJSON();
+    L.extend(shape.properties,{
+      _id : layer._id,
+      _url : layer._url
+    });
+    console.log(shape);
 
   });
 
