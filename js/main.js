@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     drawnItems.addLayer(layer);
     var shape = layer.toGeoJSON();
-    
+
 
     var latlng = [0,0];
     var content = '<input id="url" type="text"/><br/><input type="button" class="okBtn" value="Save"/>'
@@ -58,20 +58,21 @@ $(document).ready(function() {
         _id : layer._id,
         _url : layer._url
       });
+      var shape_for_db = JSON.stringify(shape);
+      console.log(shape_for_db); //pass object to database here
 
       if (popup) {
         map.closePopup();
       }
     });
-
-
-
-
   });
+
   drawnItems.on('click',function(e){
     var layer = e.layer;
-    var parsedUrl = "https://www.youtube.com/embed/"+layer.url+"?autoplay=1";
+    var parsedUrl = "https://www.youtube.com/embed/"+layer._url+"?autoplay=1";
     $("#iframe").attr('src',parsedUrl);
+    console.log(layer);   //object Url Stored
+
   });
 
 
