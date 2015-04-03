@@ -72,6 +72,7 @@ $(document).ready(function() {
     var parsedUrl = "https://www.youtube.com/embed/"+layer._url+"?autoplay=1";
     $("#iframe").attr('src',parsedUrl);
     console.log(layer);   //object Url Stored
+                          //mongoDB? or rails...
 
   });
 
